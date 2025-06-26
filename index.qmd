@@ -1,0 +1,44 @@
+---
+title: "Census Tracts"
+author: Paramanyu Gupta
+execute: 
+  echo: false
+  warning: false
+  message: false
+---
+
+```{r setup}
+library(readr)
+library(dplyr)
+library(ggplot2)
+
+# Load data
+x <- read_csv("data/nyc_tracts.csv")
+```
+
+This boxplot illustrates the distribution of median household income across different racial groups within New York City census tracts. By comparing income levels for each race, it reveals economic disparities that exist among these communities. The visualization highlights not only the median income but also the range and variability within each group. Such insights can support policymakers and researchers in identifying areas where targeted economic support or interventions may be needed to address inequality.
+
+```{r}
+#| echo: false
+#| results: 'hide'
+names(x)
+```
+
+```{r}
+# Clean up and remove rows with NA median income
+x_clean <- x %>%
+  filter(!is.na(med_income))
+
+# Boxplot of median income by race
+ggplot(x_clean, aes(x = race, y = med_income, fill = race)) +
+  geom_boxplot(alpha = 0.7) +
+  scale_fill_brewer(palette = "Set2") +
+  labs(
+    title = "Distribution of Median Income by Race in NYC Census Tracts",
+    x = "Race",
+    y = "Median Household Income (USD)",
+    fill = "Race"
+  ) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
