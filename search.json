@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Census Tracts",
     "section": "",
-    "text": "[1] \"tract\"      \"race\"       \"med_income\""
+    "text": "This boxplot illustrates the distribution of median household income across different racial groups within New York City census tracts. By comparing income levels for each race, it reveals economic disparities that exist among these communities. The visualization highlights not only the median income but also the range and variability within each group. Such insights can support policymakers and researchers in identifying areas where targeted economic support or interventions may be needed to address inequality."
   },
   {
     "objectID": "about.html",
